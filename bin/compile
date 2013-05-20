@@ -182,6 +182,7 @@ source $BIN_DIR/steps/collectstatic
 #
 
 # Set context environment variables.
+set-env GEM_PATH '$GEM_PATH:$HOME/.gem'
 set-env PATH '$HOME/.heroku/python/bin:$HOME/.gem/bin:$PATH'
 set-env PYTHONUNBUFFERED true
 set-env PYTHONHOME /app/.heroku/python
