@@ -171,6 +171,10 @@ gem install sass --no-rdoc --no-ri --install-dir "$PWD/.gem" | indent
 export GEM_PATH=$GEM_PATH:$PWD/.gem
 echo "       done."
 
+echo "-----> Compiling SASS..."
+$PWD/.gem/bin/sass --update $BUILD_DIR:$BUILD_DIR | indent
+echo "       done."
+
 # Django collectstatic support.
 source $BIN_DIR/steps/collectstatic
 
@@ -178,7 +182,7 @@ source $BIN_DIR/steps/collectstatic
 #
 
 # Set context environment variables.
-set-env PATH '$HOME/.heroku/python/bin:$PATH'
+set-env PATH '$HOME/.heroku/python/bin:$HOME/.gem/bin:$PATH'
 set-env PYTHONUNBUFFERED true
 set-env PYTHONHOME /app/.heroku/python
 set-default-env LIBRARY_PATH /app/.heroku/vendor/lib
